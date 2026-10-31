@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111318">
+    <meta name="description" content="A private, personal AI assistant powered by Google Gemini.">
+    <title>Assistant — Personal AI</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="/" aria-label="Assistant home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2.8 14.4 9.6 21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2.8Z"/></svg>
+          </span>
+          <span>assistant<span class="brand-period">.</span></span>
+        </a>
+
+        <button class="new-chat-button" id="new-chat" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          <span>New chat</span>
+          <span class="shortcut">⌘ K</span>
+        </button>
+
+        <div class="sidebar-label">YOUR SPACE</div>
+        <div class="history-placeholder" id="history-label">
+          <span class="history-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 5.5h16M4 12h16M4 18.5h10"/></svg>
+          </span>
+          <span>Current conversation</span>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="privacy-note">
+            <span class="privacy-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3"/></svg>
+            </span>
+            <div>
+              <strong>Your conversations</strong>
+              <span>Saved privately on this server</span>
+            </div>
+          </div>
+          <div class="profile">
+            <span class="avatar avatar-user">Y</span>
+            <span class="profile-name">You</span>
+            <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+          <div class="model-label">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Gemini</span>
+            <span class="model-divider">/</span>
+            <span class="model-quality">Ready to help</span>
+          </div>
+          <button class="topbar-clear" id="clear-chat" type="button" title="Clear conversation">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6m4-6v6M5 7l1 13h12l1-13M9 7V4h6v3"/></svg>
+            <span>Clear chat</span>
+          </button>
+        </header>
+
+        <section class="conversation" id="conversation" aria-label="Conversation" aria-live="polite">
+          <div class="welcome" id="welcome">
+            <div class="welcome-sparkle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2.8 14.4 9.6 21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2.8Z"/></svg>
+            </div>
+            <p class="eyebrow">A LITTLE HELP, WHENEVER YOU NEED IT</p>
+            <h1>What’s on your<br><span>mind today?</span></h1>
+            <p class="welcome-copy">Ask a question, work through an idea, or just start with a thought.</p>
+
+            <div class="suggestions" aria-label="Try asking">
+              <button class="suggestion-card" type="button" data-prompt="Help me plan a calm and productive week">
+                <span class="suggestion-icon icon-plan" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 10h16m-11 4h.01M8 17h.01"/></svg>
+                </span>
+                <span><strong>Plan my week</strong><small>Make space for what matters</small></span>
+                <svg class="suggestion-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </button>
+              <button class="suggestion-card" type="button" data-prompt="Explain a complex idea to me in simple terms">
+                <span class="suggestion-icon icon-learn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 18.5 4 21V5l8-2.5L20 5v16l-8-2.5Zm0 0v-16"/></svg>
+                </span>
+                <span><strong>Learn something</strong><small>Make a big idea feel simple</small></span>
+                <svg class="suggestion-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </button>
+              <button class="suggestion-card" type="button" data-prompt="Help me come up with creative ideas for a project">
+                <span class="suggestion-icon icon-create" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Zm7 12 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg>
+                </span>
+                <span><strong>Get creative</strong><small>Find a fresh starting point</small></span>
+                <svg class="suggestion-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="message-list" id="message-list"></div>
+        </section>
+
+        <footer class="composer-area">
+          <form class="composer" id="chat-form">
+            <label class="visually-hidden" for="message-input">Message the assistant</label>
+            <textarea id="message-input" name="message" rows="1" maxlength="10000" placeholder="Message your assistant…" required></textarea>
+            <div class="composer-footer">
+              <span class="composer-hint"><span class="enter-key">↵</span> to send <span class="hint-divider">·</span> <span>shift + ↵ for a new line</span></span>
+              <button class="send-button" id="send-button" type="submit" aria-label="Send message">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+              </button>
+            </div>
+          </form>
+          <p class="disclaimer">AI can make mistakes. Check important information.</p>
+        </footer>
+      </main>
+    </div>
+    <div class="sidebar-scrim" id="sidebar-scrim"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

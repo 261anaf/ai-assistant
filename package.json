@@ -1,0 +1,23 @@
+{
+  "name": "personal-ai-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A personal AI assistant powered by Google Gemini.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "session-file-store": "^1.5.0"
+  }
+}
